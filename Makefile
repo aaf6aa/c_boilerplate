@@ -20,11 +20,11 @@ BUILD_TIME = $(shell date -u --iso=seconds)
 
 DEFINES = -DPROJ_NAME="\"$(PROJ_NAME)\"" -DBUILD="\"$(BUILD)\"" -DCOPYRIGHT="\"$(COPYRIGHT)\"" -DBUILD_TIME="\"$(BUILD_TIME)\""
 
-# Uncomment once you have a git repo
-#GIT_VERSION = $(shell git describe --tags)@$(shell git rev-parse --abbrev-ref HEAD)
-#GIT_ORIGIN = $(shell git config --get remote.origin.url)
-#
-# DEFINES += -DGIT_VERSION="\"$(GIT_VERSION)\"" -DGIT_ORIGIN="\"$(GIT_ORIGIN)\""
+# git info
+GIT_VERSION = $(shell git describe --tags)@$(shell git rev-parse --abbrev-ref HEAD)
+GIT_ORIGIN = $(shell git config --get remote.origin.url)
+
+DEFINES += -DGIT_VERSION="\"$(GIT_VERSION)\"" -DGIT_ORIGIN="\"$(GIT_ORIGIN)\""
 
 #
 # Targets
